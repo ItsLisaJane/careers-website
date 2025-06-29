@@ -11,6 +11,7 @@
       height: 360px;
       width: 100%;
       object-fit:cover;
+      margin-bottom:16px;
       
     }
   </style>
@@ -18,25 +19,34 @@
   </head>  
   
   <body>
+    {%include 'nav.html'%}
+
+     <img class="img-fluid" id="banner" src="{{ url_for('static', filename='banner.jpg') }}">
+    
   <div class = "container">
       
   <h1 class="text-center mt-2 mb-4" >
-    {{company_name}} Careers</h1>
-    <img class="img-fluid" id="banner" src="{{ url_for('static', filename='banner.jpg') }}">
-  
+    {{company_name}} Careers
+  </h1>
+  <div>
+ 
   <h2 class="text-center mt-2 mb-4" >About Jovian</h2>
+
+    <div class="row" style = "margin-bottom: 16px; padding-bottom: 8px">
+      
+      <div class="col-md-6">
   
-  <p class = "lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur libero ligula, varius vel tincidunt et, cursus non mi. Vivamus a lacus auctor, malesuada purus at, dictum metus. Curabitur tincidunt viverra condimentum. Fusce eget libero et odio ultricies fringilla. Phasellus ut velit et erat mollis blandit. Maecenas eu orci in mi aliquam rhoncus. Etiam non eleifend neque.
-
-  Morbi nec elit convallis, volutpat lectus eu, volutpat mauris. Phasellus tristique varius vulputate. Vivamus sit amet felis dolor. Phasellus efficitur felis id tortor suscipit, et venenatis magna ultrices. Proin non ante convallis, interdum dolor semper, vulputate quam. In fermentum varius purus, sit amet convallis sapien faucibus condimentum. Pellentesque aliquam malesuada dolor, vitae imperdiet justo euismod dignissim. Morbi faucibus quam vel nisi fermentum, at fermentum dui ultrices. Maecenas ante leo, condimentum non lectus vel, bibendum fringilla tellus. Sed a suscipit erat. Fusce in diam nec turpis mattis sodales sagittis at urna. Donec vel dapibus ligula.
-
-  Praesent in velit at nibh eleifend auctor. Nulla sed ultricies turpis. Etiam feugiat magna nec diam fermentum faucibus. Maecenas luctus mi sit amet lectus suscipit, at bibendum dui tristique. Nam euismod aliquet convallis. Curabitur auctor urna quis ante gravida elementum. In lobortis diam vel condimentum ultrices. Nulla blandit facilisis nisi, non interdum quam cursus in.
-
-  Sed sollicitudin tortor vel mauris posuere, et maximus tortor ultricies. Etiam quam velit, tempor at sapien sit amet, mattis porttitor erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ac aliquam ipsum, vitae bibendum ligula. Proin condimentum vehicula tortor quis ullamcorper. Maecenas fringilla porttitor quam, id ultrices erat suscipit ut. Nulla aliquam sem orci, et ornare turpis elementum ut. Phasellus viverra, ipsum vitae imperdiet tincidunt, ex purus faucibus enim, vitae facilisis augue felis in massa. Sed tellus augue, scelerisque in tortor id, ullamcorper viverra eros. Fusce tristique, nulla a tempor lobortis, metus ipsum ultricies lacus, nec mollis tellus mauris et neque. Duis at ligula id nisl pharetra interdum. Integer sed egestas mi. Phasellus quis quam eget diam viverra vulputate vel venenatis nisi. Vestibulum eu ante a libero facilisis aliquet vel et ex. Sed quis pretium quam, eget facilisis sem.
-
-  Curabitur ut dapibus est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque condimentum consequat nibh, sed scelerisque ex maximus eu. Nam finibus metus in enim dapibus, quis feugiat erat fringilla. Phasellus leo lorem, commodo sit amet blandit non, iaculis a nisi. In hac habitasse platea dictumst. Quisque urna lacus, lacinia at nisl vitae, facilisis pretium diam. Aenean nunc lectus, ullamcorper quis iaculis et, ornare ac massa.</p>
+  <p class = "lead">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur libero ligula, varius vel tincidunt et, cursus non mi. Vivamus a lacus auctor, malesuada purus at, dictum metus. Curabitur tincidunt viverra condimentum. Fusce eget libero et odio ultricies fringilla. Phasellus ut velit et erat mollis blandit. Maecenas eu orci in mi aliquam rhoncus. Etiam non eleifend neque.Morbi nec elit convallis, volutpat lectus eu, volutpat mauris. Phasellus tristique varius vulputate. Vivamus sit amet felis dolor. Phasellus efficitur felis id tortor suscipit, et venenatis magna ultrices. Proin non ante convallis, interdum dolor semper, vulputate quam. In fermentum varius purus, sit amet convallis sapien faucibus condimentum. Pellentesque aliquam malesuada dolor, vitae imperdiet justo euismod dignissim. Morbi faucibus quam vel nisi fermentum, at fermentum dui ultrices. Maecenas ante leo, condimentum non lectus vel, bibendum fringilla tellus. Sed a suscipit erat. Fusce in diam nec turpis mattis sodales sagittis at urna. Donec vel dapibus ligula.Praesent in velit at nibh eleifend auctor. Nulla sed ultricies turpis. Etiam feugiat magna nec diam fermentum faucibus. Maecenas luctus mi sit amet lectus suscipit, at bibendum dui tristique. Nam euismod aliquet convallis. Curabitur auctor urna quis ante gravida elementum. In lobortis diam vel condimentum ultrices. Nulla blandit facilisis nisi, non interdum quam cursus in.
+</p>
+      </div>
+      <div class="d-none d-md-block col-md-6">
+      <img src="{{ url_for('static', filename='people.jpg') }}" style="height:320px; border-radius:4px;">
+      </div>
+      
+    </div>  
     
-  <h2 class="text-center mt-2 mb-4" >Open Positions</h2>
+  <h2 class="text-center mt-2 mb-4" >Job Openings</h2>
   <div>
     {% for job in jobs %}
     {% include 'jobitem.html'%}
@@ -45,9 +55,10 @@
 
     <div class="text-center">
   <button class="btn btn-primary btn-lg" >Contact us</button>
-      <p class="mt-4">Copyright 2022, Jovian</p>
+  
       
     </div>
   </div>
+    {% include 'footer.html'%}
   </body>
 </html>
